@@ -44,7 +44,7 @@ h1 {
   font-family: 'Caprasimo', cursive;
   font-size: 3rem;
   margin: 0 auto 3rem auto;
-  color: #3f3b00;
+  color: #ded0c5;
 }
 
 #game-container {
@@ -52,7 +52,7 @@ h1 {
   margin: 3rem auto;
   padding: 2rem;
   border-radius: 6px;
-  background: linear-gradient(#383624, #282617);
+  background: linear-gradient(#1b2d11, #1e3337);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
 }
@@ -183,7 +183,7 @@ ol {
   height: 8rem;
   border: none;
   background: #aca788;
-  color: #3f3b00;
+  color: #276328;
   font-size: 5rem;
   cursor: pointer;
   font-family: 'Caprasimo', cursive;
