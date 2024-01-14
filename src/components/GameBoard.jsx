@@ -6,19 +6,27 @@ const initialGameBoard = [
   [null, null, null],
 ];
 
-const GameBoard = ({onSelectSquare, activePlayerSymbol}) => {
-  const [gameBoard, setGameBoard] = useState(initialGameBoard);
+const GameBoard = ({ onSelectSquare, turns }) => {
+  let gameBoard = initialGameBoard;
 
-  const handleSelectSquare = (rowIndex, colIndex) => {
-    setGameBoard((prevBoard) => {
-      const updatedBoard = [...prevBoard.map((innerArray) => [...innerArray])];
-      updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
-      return updatedBoard;
-    });
+  for (const turn of turns) {
+    const { square, player } = turn;
+    const { row, col } = square;
 
-    //part of lifting state up
-    onSelectSquare();
-  };
+    gameBoard[row][col] = player;
+  }
+
+  //   const [gameBoard, setGameBoard] = useState(initialGameBoard);
+
+  //   const handleSelectSquare = (rowIndex, colIndex) => {
+  //     setGameBoard((prevBoard) => {
+  //       const updatedBoard = [...prevBoard.map((innerArray) => [...innerArray])];
+  //       updatedBoard[rowIndex][colIndex] = activePlayerSymbol;
+  //       return updatedBoard;
+  //     });
+
+  //part of lifting state up
+  //onSelectSquare();
 
   return (
     <ol id="game-board">
@@ -27,7 +35,10 @@ const GameBoard = ({onSelectSquare, activePlayerSymbol}) => {
           <ol>
             {row.map((playerSymbol, colIndex) => (
               <li key={colIndex}>
-                <button onClick={() => handleSelectSquare(rowIndex, colIndex)}>
+                <button
+                  onClick={() => onSelectSquare(rowIndex, colIndex)}
+                  disabled={playerSymbol !== null}
+                >
                   {playerSymbol}
                 </button>
               </li>
