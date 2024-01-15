@@ -1,3 +1,4 @@
+//This component is responsible for providing logs (e.g. "X selected 0,1")
 const Log = ({ turns }) => {
   return (
     <ol id="log">
