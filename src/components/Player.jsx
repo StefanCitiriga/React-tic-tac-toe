@@ -12,9 +12,8 @@ export default function Player({ initialName, symbol, isActive }) {
     setPlayerName(event.target.value);
   };
 
-
   return (
-    <li className={isActive ? 'active' : undefined}>
+    <li className={isActive ? "active" : undefined}>
       <span className="player">
         {!isEditing && <span className="player-name">{playerName}</span>}
         {isEditing && (
